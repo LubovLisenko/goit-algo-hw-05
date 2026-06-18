@@ -10,7 +10,7 @@ def input_error(func):
             return "Enter the argument for the command"
 
     return inner
-
+@input_error
 def parse_input(user_input):
     cmd, *args = user_input.split()
     cmd = cmd.strip().lower()
@@ -35,7 +35,7 @@ def change_contact(args, contacts):
 def show_phone (args, contacts):
     name = args[0]
     if name in contacts:
-        return print(contacts[name])
+        return contacts[name]
 
 @input_error
 def show_all(contacts):
